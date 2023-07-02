@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('task_type_id');
             $table->unsignedBigInteger('related_model_id');
-            $table->foreign('related_model_id')->references('id')->on('customer_personal');
+            $table->foreign('related_model_id')->references('id')->on('customer_personals');
             $table->smallInteger('task_status');
             $table->timestamp('finished_date');
             $table->unsignedBigInteger('finished_by_id');

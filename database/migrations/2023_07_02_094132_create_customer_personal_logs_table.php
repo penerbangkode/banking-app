@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('customer_personal_logs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('customer_personal_id');
-            $table->foreign('customer_personal_id')->references('id')->on('customer_personal');
+            $table->foreign('customer_personal_id')->references('id')->on('customer_personals');
             $table->longText('old_value');
             $table->longText('new_value');
             $table->unsignedBigInteger('created_by_id');
