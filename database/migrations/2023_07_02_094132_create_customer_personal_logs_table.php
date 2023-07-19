@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_personal_id');
             $table->foreign('customer_personal_id')->references('id')->on('customer_personals');
-            $table->longText('old_value');
-            $table->longText('new_value');
+            $table->longText('old_value')->nullable();
+            $table->longText('new_value')->nullable();
             $table->unsignedBigInteger('created_by_id');
             $table->timestamps();
         });

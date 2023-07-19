@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('data_enum_details', function (Blueprint $table) {
             $table->id();
-            $table->string('rule_name', 50);
-            $table->unsignedBigInteger('rule_value');
-            $table->string('description', 200);
+            $table->string('rule_name', 50)->nullable();
+            $table->unsignedBigInteger('rule_value')->nullable();
+            $table->string('description', 200)->nullable();
             $table->timestamps();
         });
     }

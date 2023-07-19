@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class DataEnumDetail extends Model
 {
+    CONST NATIONALITY_TYPE = 'NATIONALITY_TYPE';
+    CONST IDENTITY_TYPE = 'IDENTITY_TYPE';
+    CONST GENDER_TYPE = 'GENDER_TYPE';
+
     use HasFactory;
 }

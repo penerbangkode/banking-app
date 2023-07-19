@@ -16,6 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('users');
             $table->string('full_name', 200);
+            $table->string('phone', 200);
+            $table->unsignedBigInteger('gender_id');
             $table->date('date_of_birth');
             $table->string('place_of_birth', 200);
             $table->unsignedBigInteger('nationality_id');
@@ -26,13 +28,13 @@ return new class extends Migration
             $table->string('npwp_no', 200);
             $table->longText('npwp_picture');
             $table->string('mother_name', 200);
-            $table->string('identity_address', 200);
+            $table->string('identity_address', 200)->nullable();
             $table->unsignedBigInteger('identity_village_id');
             $table->foreign('identity_village_id')->references('id')->on('villages');
-            $table->string('domicile_address', 200);
-            $table->unsignedBigInteger('domicile_village_id');
+            $table->string('domicile_address', 200)->nullable();
+            $table->unsignedBigInteger('domicile_village_id')->nullable();
             $table->foreign('domicile_village_id')->references('id')->on('villages');
-            $table->boolean('is_domicile_match');
+            $table->boolean('is_domicile_match')->default('false');
             $table->unsignedBigInteger('updated_by_id');
             $table->timestamps();
         });
