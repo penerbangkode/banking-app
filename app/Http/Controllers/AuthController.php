@@ -13,6 +13,7 @@ use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
 {
@@ -46,20 +47,21 @@ class AuthController extends Controller
         $selfie_picture = null;
         $identity_picture = null;
         $npwp_picture = null;
+
         if($request->hasFile('identity_photo')){
-            $fileName = time().'.'.$request->file('identity_photo')->extension();
-            $identity_picture = storage_path('uploads/').$fileName;
-            $request->file('identity_photo')->move(storage_path('uploads/'), $fileName);
+            $path = Storage::disk('s3')->put('uploads/', $request->file('identity_photo'));
+            $path = Storage::url($path);
+            $identity_picture = $path;
         }
         if($request->hasFile('selfie_photo')){
-            $fileName = time().'.'.$request->file('selfie_photo')->extension();
-            $selfie_picture = storage_path('uploads/').$fileName;
-            $request->file('selfie_photo')->move(storage_path('uploads/'), $fileName);
+            $path = Storage::disk('s3')->put('uploads/', $request->file('selfie_photo'));
+            $path = Storage::url($path);
+            $selfie_picture = $path;
         }
         if($request->hasFile('npwp_photo')){
-            $fileName = time().'.'.$request->file('npwp_photo')->extension();
-            $npwp_picture = storage_path('uploads/').$fileName;
-            $request->file('npwp_photo')->move(storage_path('uploads/'), $fileName);
+            $path = Storage::disk('s3')->put('uploads/', $request->file('npwp_photo'));
+            $path = Storage::url($path);
+            $npwp_picture = $path;
         }
 
 
