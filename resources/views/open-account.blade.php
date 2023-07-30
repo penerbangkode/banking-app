@@ -83,7 +83,7 @@
                 <div class="kt-grid__item kt-grid__item--fluid kt-wizard-v4__wrapper">
 
                     <!--begin: Form Wizard Form-->
-                    <form class="kt-form" id="kt_form" method="POST" action="{{ route('auth.customer-register') }}" enctype="multipart/form-data">
+                    <form class="kt-form" id="kt_form" method="POST" action="{{ route('auth.customer-register') }}" enctype="multipart/form-data" onsubmit="submit.disabled = true; return true;">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <!--begin: Form Wizard Step 1-->
                         <div class="kt-wizard-v4__content" data-ktwizard-type="step-content" data-ktwizard-state="current">
@@ -402,7 +402,7 @@
                             <button class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-prev">
                                 Previous
                             </button>
-                            <button class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-submit">
+                            <button class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-submit" name="submit">
                                 Submit
                             </button>
                             <button class="btn btn-brand btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-next">
