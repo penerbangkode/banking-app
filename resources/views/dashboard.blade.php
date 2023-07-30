@@ -423,7 +423,7 @@
                 },
                 {
                     field: "amount",
-                    title: "",
+                    title: "amount",
                     width: 200,
                     // callback function support for column rendering
                     template: function(row) {
