@@ -39,6 +39,10 @@ class AuthController extends Controller
 
 
     public function register(Request $request){
+        $request->validate([
+            'username' => 'required|unique:customers,email',
+            'password' => 'required',
+        ]);
         $customer = new Customer();
         $customer->username = $request->email;
         $customer->password = Hash::make($request->password);
